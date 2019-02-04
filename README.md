@@ -30,7 +30,9 @@ from envjoy import env
 
 env.FOO
 env.FOO = 1
+
 del env.FOO
+
 env.FOO = 1
 
 # casted access - never throws annoying errors
