@@ -510,12 +510,12 @@ class TestCase(helper.TestCase):
         self.assertDeepEqual(envjoy.env.get('FOO'), {'foo': 1, 'bar': 2, 'baz': 3})
         self.assertDeepEqual(envjoy.env.get('FOO', bool), True)
 
-        # NOTE: not worth the headache...
-        if PY2:
+        # NOTE: no consistency within Python's major versions even >:'(
+        try:
             self.assertDeepEqual(envjoy.env['FOO', int], 213)
             self.assertDeepEqual(envjoy.env['FOO', float], 213.0)
             self.assertDeepEqual(envjoy.env['FOO', str], "{'baz': 3, 'foo': 1, 'bar': 2}")
-        else:
+        except:
             self.assertDeepEqual(envjoy.env.get('FOO', int), 123)
             self.assertDeepEqual(envjoy.env.get('FOO', float), 123.0)
             self.assertDeepEqual(envjoy.env.get('FOO', str), "{'foo': 1, 'bar': 2, 'baz': 3}")
@@ -598,9 +598,10 @@ class TestCase(helper.TestCase):
 
         envjoy.env.set('FOO', {'foo': 1, 'bar': 2, 'baz': 3})
 
-        if PY2:
+        # NOTE: no consistency within Python's major versions even >:'(
+        try:
             self.assertDeepEqual(list(environ.items()), [('BAZ', '3'), ('FOO', "{'bar': 2, 'foo': 1, 'baz': 3}"), ('bar', '2')])
-        else:
+        except:
             self.assertDeepEqual(list(environ.items()), [('FOO', "{'foo': 1, 'bar': 2, 'baz': 3}"), ('bar', '2'), ('BAZ', '3')])
 
         envjoy.env.set('FOO', {'foo': {'bar': {'baz': True}}})
@@ -609,9 +610,10 @@ class TestCase(helper.TestCase):
 
         envjoy.env.set('FOO', OrderedDict({'foo': 1, 'bar': 2, 'baz': 3}))
 
-        if PY2:
+        # NOTE: no consistency within Python's major versions even >:'(
+        try:
             self.assertDeepEqual(list(environ.items()), [('BAZ', '3'), ('FOO', "{'baz': 3, 'foo': 1, 'bar': 2}"), ('bar', '2')])
-        else:
+        except:
             self.assertDeepEqual(list(environ.items()), [('FOO', "{'foo': 1, 'bar': 2, 'baz': 3}"), ('bar', '2'), ('BAZ', '3')])
 
     def test_delete(self):
@@ -1293,12 +1295,12 @@ class TestCase(helper.TestCase):
         self.assertDeepEqual(envjoy.env['FOO'], {'foo': 1, 'bar': 2, 'baz': 3})
         self.assertDeepEqual(envjoy.env['FOO', bool], True)
 
-        # NOTE: not worth the headache...
-        if PY2:
+        # NOTE: no consistency within Python's major versions even >:'(
+        try:
             self.assertDeepEqual(envjoy.env['FOO', int], 213)
             self.assertDeepEqual(envjoy.env['FOO', float], 213.0)
             self.assertDeepEqual(envjoy.env['FOO', str], "{'baz': 3, 'foo': 1, 'bar': 2}")
-        else:
+        except:
             self.assertDeepEqual(envjoy.env['FOO', int], 123)
             self.assertDeepEqual(envjoy.env['FOO', float], 123.0)
             self.assertDeepEqual(envjoy.env['FOO', str], "{'foo': 1, 'bar': 2, 'baz': 3}")
@@ -1549,10 +1551,10 @@ class TestCase(helper.TestCase):
 
         envjoy.env['FOO'] = {'foo': 1, 'bar': 2, 'baz': 3}
 
-        # NOTE: not worth the headache...
-        if PY2:
+        # NOTE: no consistency within Python's major versions even >:'(
+        try:
             self.assertDeepEqual(list(environ.items()), [('BAZ', '3'), ('FOO', "{'bar': 2, 'foo': 1, 'baz': 3}"), ('bar', '2')])
-        else:
+        except:
             self.assertDeepEqual(list(environ.items()), [('FOO', "{'foo': 1, 'bar': 2, 'baz': 3}"), ('bar', '2'), ('BAZ', '3')])
 
         envjoy.env['FOO'] = {'foo': {'bar': {'baz': True}}}
@@ -1561,10 +1563,10 @@ class TestCase(helper.TestCase):
 
         envjoy.env['FOO'] = OrderedDict({'foo': 1, 'bar': 2, 'baz': 3})
 
-        # NOTE: not worth the headache...
-        if PY2:
+        # NOTE: no consistency within Python's major versions even >:'(
+        try:
             self.assertDeepEqual(list(environ.items()), [('BAZ', '3'), ('FOO', "{'baz': 3, 'foo': 1, 'bar': 2}"), ('bar', '2')])
-        else:
+        except:
             self.assertDeepEqual(list(environ.items()), [('FOO', "{'foo': 1, 'bar': 2, 'baz': 3}"), ('bar', '2'), ('BAZ', '3')])
 
     def test___setattr__(self):
@@ -1636,10 +1638,10 @@ class TestCase(helper.TestCase):
 
         envjoy.env.FOO = {'foo': 1, 'bar': 2, 'baz': 3}
 
-        # NOTE: not worth the headache...
-        if PY2:
+        # NOTE: no consistency within Python's major versions even >:'(
+        try:
             self.assertDeepEqual(list(environ.items()), [('BAZ', '3'), ('FOO', "{'bar': 2, 'foo': 1, 'baz': 3}"), ('bar', '2')])
-        else:
+        except:
             self.assertDeepEqual(list(environ.items()), [('FOO', "{'foo': 1, 'bar': 2, 'baz': 3}"), ('bar', '2'), ('BAZ', '3')])
 
         envjoy.env.FOO = {'foo': {'bar': {'baz': True}}}
@@ -1648,10 +1650,10 @@ class TestCase(helper.TestCase):
 
         envjoy.env.FOO = OrderedDict({'foo': 1, 'bar': 2, 'baz': 3})
 
-        # NOTE: not worth the headache...
-        if PY2:
+        # NOTE: no consistency within Python's major versions even >:'(
+        try:
             self.assertDeepEqual(list(environ.items()), [('BAZ', '3'), ('FOO', "{'baz': 3, 'foo': 1, 'bar': 2}"), ('bar', '2')])
-        else:
+        except:
             self.assertDeepEqual(list(environ.items()), [('FOO', "{'foo': 1, 'bar': 2, 'baz': 3}"), ('bar', '2'), ('BAZ', '3')])
 
     def test___delitem__(self):
