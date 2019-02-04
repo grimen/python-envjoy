@@ -5,7 +5,7 @@
 
 ## Introduction
 
-Environment variable getting and setting has a bit of an itch it. This is a not-so-whiny library that makes it more easy to get and set environment variables, and optionally smarter data type interpretation.
+Environment variable getting and setting has a bit of an itch to it. This is a not-so-whiny library that makes it more easy to get and set environment variables, and optionally smarter data type interpretation.
 
 
 ## Install
