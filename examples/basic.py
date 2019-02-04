@@ -3,6 +3,8 @@
 #       IMPORTS
 # --------------------------------------
 
+from __future__ import print_function # Optional: Python 2 support for `env.print`
+
 import rootpath
 
 rootpath.append()
@@ -25,220 +27,256 @@ env.FOO = 1
 
 del env['FOO']
 
-env['FOO'] # => None
-env['FOO'] = 1 # set value without complaints (casted to string)
-env['FOO'] # => "1"
-env['FOO'] # => 1
+print('---')
+
+print(env['FOO']) # => None
+
+env['FOO']= 1 # set value without complaints (casted to string)
+
+print(env['FOO']) # => "1"
+print(env['FOO']) # => 1
+
+print('---')
 
 env['FOO'] = None
-env['FOO'] # => ''
-env['FOO', bool] # => False
-env['FOO', int] # => 0
-env['FOO', float] # => 0.0
-env['FOO', str] # => ''
-env['FOO', tuple] # => ()
-env['FOO', list] # => []
-env['FOO', dict] # => {}
+
+print(env['FOO']) # => ''
+print(env['FOO', bool]) # => False
+print(env['FOO', int]) # => 0
+print(env['FOO', float]) # => 0.0
+print(env['FOO', str]) # => ''
+print(env['FOO', tuple]) # => ()
+print(env['FOO', list]) # => []
+print(env['FOO', dict]) # => {}
+
+print('---')
 
 env['FOO'] = True
-env['FOO'] # => 'True'
-env['FOO', bool] # => True
-env['FOO', int] # => 1
-env['FOO', float] # => 1.0
-env['FOO', str] # => 'true'
-env['FOO', tuple] # => (True)
-env['FOO', list] # => [True]
-env['FOO', dict] # => {}
+
+print(env['FOO']) # => 'True'
+print(env['FOO', bool]) # => True
+print(env['FOO', int]) # => 1
+print(env['FOO', float]) # => 1.0
+print(env['FOO', str]) # => 'true'
+print(env['FOO', tuple]) # => (True)
+print(env['FOO', list]) # => [True]
+print(env['FOO', dict]) # => {}
+
+print('---')
 
 env['FOO'] = 'true' # => 'true'
-env['FOO', bool] # => True
-env['FOO', int] # => 1
-env['FOO', float] # => 1.0
-env['FOO', str] # => 'true'
-env['FOO', tuple] # => (True)
-env['FOO', list] # => [True]
-env['FOO', dict] # => {}
+
+print(env['FOO', bool]) # => True
+print(env['FOO', int]) # => 1
+print(env['FOO', float]) # => 1.0
+print(env['FOO', str]) # => 'true'
+print(env['FOO', tuple]) # => (True)
+print(env['FOO', list]) # => [True]
+print(env['FOO', dict]) # => {}
+
+print('---')
 
 env['FOO'] = 0
-env['FOO'] # => '0'
-env['FOO', bool] # => False
-env['FOO', int] # => 0
-env['FOO', float] # => 0.0
-env['FOO', str] # => '0'
-env['FOO', tuple] # => (0)
-env['FOO', list] # => [0]
-env['FOO', dict] # => {}
+
+print(env['FOO']) # => '0'
+print(env['FOO', bool]) # => False
+print(env['FOO', int]) # => 0
+print(env['FOO', float]) # => 0.0
+print(env['FOO', str]) # => '0'
+print(env['FOO', tuple]) # => (0)
+print(env['FOO', list]) # => [0]
+print(env['FOO', dict]) # => {}
+
+print('---')
 
 env['FOO'] = '0'
-env['FOO'] # => '0'
-env['FOO', bool] # => False
-env['FOO', int] # => 0
-env['FOO', float] # => 0.0
-env['FOO', str] # => '0'
-env['FOO', tuple] # => (0)
-env['FOO', list] # => [0]
-env['FOO', dict] # => {}
+
+print(env['FOO']) # => '0'
+print(env['FOO', bool]) # => False
+print(env['FOO', int]) # => 0
+print(env['FOO', float]) # => 0.0
+print(env['FOO', str]) # => '0'
+print(env['FOO', tuple]) # => (0)
+print(env['FOO', list]) # => [0]
+print(env['FOO', dict]) # => {}
+
+print('---')
 
 env['FOO'] = 1
-env['FOO'] # => '1'
-env['FOO', bool] # => True
-env['FOO', int] # => 1
-env['FOO', float] # => 1.0
-env['FOO', str] # => '1'
-env['FOO', tuple] # => (1)
-env['FOO', list] # => [1]
-env['FOO', dict] # => {}
+
+print(env['FOO']) # => '1'
+print(env['FOO', bool]) # => True
+print(env['FOO', int]) # => 1
+print(env['FOO', float]) # => 1.0
+print(env['FOO', str]) # => '1'
+print(env['FOO', tuple]) # => (1)
+print(env['FOO', list]) # => [1]
+print(env['FOO', dict]) # => {}
+
+print('---')
 
 env['FOO'] = '1'
-env['FOO'] # => '1'
-env['FOO', bool] # => True
-env['FOO', int] # => 1
-env['FOO', float] # => 1.0
-env['FOO', str] # => '1'
-env['FOO', tuple] # => (1)
-env['FOO', list] # => [1]
-env['FOO', dict] # => {}
+
+print(env['FOO']) # => '1'
+print(env['FOO', bool]) # => True
+print(env['FOO', int]) # => 1
+print(env['FOO', float]) # => 1.0
+print(env['FOO', str]) # => '1'
+print(env['FOO', tuple]) # => (1)
+print(env['FOO', list]) # => [1]
+print(env['FOO', dict]) # => {}
+
+print('---')
 
 env['FOO'] = -1
-env['FOO'] # => '-1'
-env['FOO', bool] # => True
-env['FOO', int] # => -1
-env['FOO', float] # => -1.0
-env['FOO', str] # => '-1'
-env['FOO', tuple] # => (-1)
-env['FOO', list] # => [1]
-env['FOO', dict] # => {}
+
+print(env['FOO']) # => '-1'
+print(env['FOO', bool]) # => True
+print(env['FOO', int]) # => -1
+print(env['FOO', float]) # => -1.0
+print(env['FOO', str]) # => '-1'
+print(env['FOO', tuple]) # => (-1)
+print(env['FOO', list]) # => [1]
+print(env['FOO', dict]) # => {}
+
+print('---')
 
 env['FOO'] = '-1'
-env['FOO'] # => '-1'
-env['FOO', bool] # => True
-env['FOO', int] # => -1
-env['FOO', float] # => -1.0
-env['FOO', str] # => '-1'
-env['FOO', tuple] # => (-1)
-env['FOO', list] # => [1]
-env['FOO', dict] # => {}
+
+print(env['FOO']) # => '-1'
+print(env['FOO', bool]) # => True
+print(env['FOO', int]) # => -1
+print(env['FOO', float]) # => -1.0
+print(env['FOO', str]) # => '-1'
+print(env['FOO', tuple]) # => (-1)
+print(env['FOO', list]) # => [1]
+print(env['FOO', dict]) # => {}
+
+print('---')
 
 env['FOO'] = 12.34
-env['FOO'] # => '12.34'
-env['FOO', bool] # => True
-env['FOO', int] # => 12
-env['FOO', float] # => 12.34
-env['FOO', str] # => '12.34'
-env['FOO', tuple] # => (12.34)
-env['FOO', list] # => [12.34]
-env['FOO', dict] # => {}
+
+print(env['FOO']) # => '12.34'
+print(env['FOO', bool]) # => True
+print(env['FOO', int]) # => 12
+print(env['FOO', float]) # => 12.34
+print(env['FOO', str]) # => '12.34'
+print(env['FOO', tuple]) # => (12.34)
+print(env['FOO', list]) # => [12.34]
+print(env['FOO', dict]) # => {}
+
+print('---')
 
 env['FOO'] = '12.34'
-env['FOO'] # => '12.34'
-env['FOO', bool] # => True
-env['FOO', int] # => 12
-env['FOO', float] # => 12.34
-env['FOO', str] # => '12.34'
-env['FOO', tuple] # => (12.34)
-env['FOO', list] # => [12.34]
-env['FOO', dict] # => {}
+
+print(env['FOO']) # => '12.34'
+print(env['FOO', bool]) # => True
+print(env['FOO', int]) # => 12
+print(env['FOO', float]) # => 12.34
+print(env['FOO', str]) # => '12.34'
+print(env['FOO', tuple]) # => (12.34)
+print(env['FOO', list]) # => [12.34]
+print(env['FOO', dict]) # => {}
+
+print('---')
 
 env['FOO'] = -12.34
-env['FOO'] # => '-12.34'
-env['FOO', bool] # => True
-env['FOO', int] # => -12
-env['FOO', float] # => -12.34
-env['FOO', str] # => '-12.34'
-env['FOO', tuple] # => (-12.34)
-env['FOO', list] # => [-12.34]
-env['FOO', dict] # => {}
 
-env['FOO'] = -'12.34'
-env['FOO'] # => '-12.34'
-env['FOO', bool] # => True
-env['FOO', int] # => -12
-env['FOO', float] # => -12.34
-env['FOO', str] # => '-12.34'
-env['FOO', tuple] # => (-12.34)
-env['FOO', list] # => [-12.34]
-env['FOO', dict] # => {}
+print(env['FOO']) # => '-12.34'
+print(env['FOO', bool]) # => True
+print(env['FOO', int]) # => -12
+print(env['FOO', float]) # => -12.34
+print(env['FOO', str]) # => '-12.34'
+print(env['FOO', tuple]) # => (-12.34)
+print(env['FOO', list]) # => [-12.34]
+print(env['FOO', dict]) # => {}
+
+print('---')
+
+env['FOO'] = '-12.34'
+
+print(env['FOO']) # => '-12.34'
+print(env['FOO', bool]) # => True
+print(env['FOO', int]) # => -12
+print(env['FOO', float]) # => -12.34
+print(env['FOO', str]) # => '-12.34'
+print(env['FOO', tuple]) # => (-12.34)
+print(env['FOO', list]) # => [-12.34]
+print(env['FOO', dict]) # => {}
+
+print('---')
 
 env['FOO'] = 'foo bar baz 1 2 3'
-env['FOO'] # => 'foo bar baz 1 2 3'
-env['FOO', bool] # => True
-env['FOO', int] # => 123
-env['FOO', float] # => 123.0
-env['FOO', str] # => 'foo bar baz 1 2 3'
-env['FOO', tuple] # => ('foo bar baz 1 2 3')
-env['FOO', list] # => ['foo bar baz 1 2 3']
-env['FOO', dict] # => {}
+
+print(env['FOO']) # => 'foo bar baz 1 2 3'
+print(env['FOO', bool]) # => True
+print(env['FOO', int]) # => 123
+print(env['FOO', float]) # => 123.0
+print(env['FOO', str]) # => 'foo bar baz 1 2 3'
+print(env['FOO', tuple]) # => ('foo bar baz 1 2 3')
+print(env['FOO', list]) # => ['foo bar baz 1 2 3']
+print(env['FOO', dict]) # => {}
+
+print('---')
 
 env['FOO'] = 'foo,bar,baz,1,2,3'
-env['FOO'] # => 'foo,bar,baz,1,2,3'
-env['FOO', bool] # => True
-env['FOO', int] # => 123
-env['FOO', float] # => 123.0
-env['FOO', str] # => 'foo,bar,baz,1,2,3'
-env['FOO', tuple] # => ('foo', 'bar', 'baz')
-env['FOO', list] # => ['foo', 'bar', 'baz']
-env['FOO', dict] # => {0: 'foo', 1: 'bar', 2: 'baz'}
 
-env['FOO'] = '(foo,bar,baz,1,2,3)'
-env['FOO'] # => 'foo,bar,baz,1,2,3'
-env['FOO', bool] # => True
-env['FOO', int] # => 123
-env['FOO', float] # => 123.0
-env['FOO', str] # => 'foo,bar,baz,1,2,3'
-env['FOO', tuple] # => ('foo', 'bar', 'baz')
-env['FOO', list] # => ['foo', 'bar', 'baz']
-env['FOO', dict] # => {0: 'foo', 1: 'bar', 2: 'baz'}
+print(env['FOO']) # => 'foo,bar,baz,1,2,3'
+print(env['FOO', bool]) # => True
+print(env['FOO', int]) # => 123
+print(env['FOO', float]) # => 123.0
+print(env['FOO', str]) # => 'foo,bar,baz,1,2,3'
+print(env['FOO', tuple]) # => ('foo', 'bar', 'baz')
+print(env['FOO', list]) # => ['foo', 'bar', 'baz']
+print(env['FOO', dict]) # => {0: 'foo', 1: 'bar', 2: 'baz'}
 
-env['FOO'] = '[foo,bar,baz,1,2,3]'
-env['FOO'] # => 'foo,bar,baz,1,2,3'
-env['FOO', bool] # => True
-env['FOO', int] # => 123
-env['FOO', float] # => 123.0
-env['FOO', str] # => 'foo,bar,baz,1,2,3'
-env['FOO', tuple] # => ('foo', 'bar', 'baz')
-env['FOO', list] # => ['foo', 'bar', 'baz']
-env['FOO', dict] # => {0: 'foo', 1: 'bar', 2: 'baz'}
+print('---')
 
 env['FOO'] = ('foo', 'bar', 'baz', 1, 2, 3)
-env['FOO'] # => '(foo,bar,baz,1,2,3)'
-env['FOO', bool] # => True
-env['FOO', int] # => 123
-env['FOO', float] # => 123.0
-env['FOO', str] # => '(foo,bar,baz,1,2,3)'
-env['FOO', tuple] # => ('foo', 'bar', 'baz')
-env['FOO', list] # => ['foo', 'bar', 'baz']
-env['FOO', dict] # => {0: 'foo', 1: 'bar', 2: 'baz'}
+
+print(env['FOO']) # => '(foo,bar,baz,1,2,3)'
+print(env['FOO', bool]) # => True
+print(env['FOO', int]) # => 123
+print(env['FOO', float]) # => 123.0
+print(env['FOO', str]) # => '(foo,bar,baz,1,2,3)'
+print(env['FOO', tuple]) # => ('foo', 'bar', 'baz')
+print(env['FOO', list]) # => ['foo', 'bar', 'baz', 1, 2, 3]
+print(env['FOO', dict]) # => {} # TODO:  {0: 'foo', 1: 'bar', 2: 'baz', 3: 1, 4: 2, 5: 3}
+
+print('---')
 
 env['FOO'] = ['foo', 'bar', 'baz', 1, 2, 3]
-env['FOO'] # => '[foo,bar,baz,1,2,3]'
-env['FOO', bool] # => True
-env['FOO', int] # => 123
-env['FOO', float] # => 123.0
-env['FOO', str] # => '[foo,bar,baz,1,2,3]'
-env['FOO', tuple] # => ('foo', 'bar', 'baz')
-env['FOO', list] # => ['foo', 'bar', 'baz']
-env['FOO', dict] # => {0: 'foo', 1: 'bar', 2: 'baz', 3: 1, 4: 2, 5: 3}
+
+print(env['FOO']) # => '[foo,bar,baz,1,2,3]'
+print(env['FOO', bool]) # => True
+print(env['FOO', int]) # => 123
+print(env['FOO', float]) # => 123.0
+print(env['FOO', str]) # => '[foo, bar, baz, 1, 2, 3]'
+print(env['FOO', tuple]) # => ('foo', 'bar', 'baz', 1, 2, 3)
+print(env['FOO', list]) # => ['foo', 'bar', 'baz', 1, 2, 3]
+print(env['FOO', dict]) # => {} # TODO:  {0: 'foo', 1: 'bar', 2: 'baz', 3: 1, 4: 2, 5: 3}
+
+print('---')
 
 env['FOO'] = {'foo': 1, 'bar': 2, 'baz': 3}
-# env['FOO'] # => 'foo:1,bar:2,baz:3' # REVIEW: handle nested json
-env['FOO'] # => '{foo:1,bar:2,baz:3}' # REVIEW: handle nested json
-env['FOO', bool] # => True
-env['FOO', int] # => 123
-env['FOO', float] # => 123.0
-env['FOO', str] # => '{foo:1,bar:2,baz:3}'
-env['FOO', tuple] # => ({0: 'foo', 1: 'bar', 2: 'baz', 3: 1, 4: 2, 5: 3})
-env['FOO', list] # => [{0: 'foo', 1: 'bar', 2: 'baz', 3: 1, 4: 2, 5: 3}]
-env['FOO', dict] # => {0: 'foo', 1: 'bar', 2: 'baz', 3: 1, 4: 2, 5: 3}
 
-env['FOO'] = {'foo': {'bar': {'baz': True}}}
-env['FOO'] # => '' # REVIEW: handle nested json
-env['FOO', bool] # => True
-env['FOO', int] # => 0
-env['FOO', float] # => 0.0
-env['FOO', str] # => TODO
-env['FOO', tuple] # => TODO
-env['FOO', list] # => TODO
-env['FOO', dict] # => TODO
+print(env['FOO']) # => '{foo:1,bar:2,baz:3}' # REVIEW: handle nested json
+print(env['FOO', bool]) # => True
+print(env['FOO', int]) # => 123
+print(env['FOO', float]) # => 123.0
+print(env['FOO', str]) # => '{foo: 1, bar: 2, baz: 3}'
+print(env['FOO', tuple]) # => ({0: 'foo', 1: 'bar', 2: 'baz', 3: 1, 4: 2, 5: 3})
+print(env['FOO', list]) # => [{0: 'foo', 1: 'bar', 2: 'baz', 3: 1, 4: 2, 5: 3}]
+print(env['FOO', dict]) # => {'foo': 1, 'bar': 2, 'baz': 3}
+
+# etc.
+
+print('---')
 
 env.inspect()
+
+print('---')
+
 env.print()
+
+print('---')
