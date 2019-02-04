@@ -1793,12 +1793,10 @@ class TestCase(helper.TestCase):
         environ['LIST'] = str([1, 2, 3])
         environ['DICT'] = str({'foo': [1, 2, 3]})
 
-        # NOTE: not worth the headache...
-        if PY2:
-            self.assertDeepEqual(repr(envjoy.env), "{'TUPLE': (1, 2, 3), 'INT': 1, 'FLOAT': 1.01, 'LIST': [1, 2, 3], 'DICT': {'foo': [1, 2, 3]}, 'BOOL': True}")
-        else:
-            self.assertDeepEqual(repr(envjoy.env), "{'BOOL': True, 'INT': 1, 'FLOAT': 1.01, 'TUPLE': (1, 2, 3), 'LIST': [1, 2, "
- "3], 'DICT': {'foo': [1, 2, 3]}}")
+        # NOTE: Python 2 vs Python 3
+        self.assertDeepEqual(eval(repr(envjoy.env)), eval("{'BOOL': True, 'INT': 1, 'FLOAT': 1.01, 'TUPLE': (1, 2, 3), 'LIST': [1, 2, "
+ "3], 'DICT': {'foo': [1, 2, 3]}}"))
+
 
     def test___str__(self):
         self.assertTrue(hasattr(envjoy.env, '__str__'))
@@ -1815,12 +1813,9 @@ class TestCase(helper.TestCase):
         environ['LIST'] = str([1, 2, 3])
         environ['DICT'] = str({'foo': [1, 2, 3]})
 
-        # NOTE: not worth the headache...
-        if PY2:
-            self.assertDeepEqual(str(envjoy.env), "{'TUPLE': (1, 2, 3), 'INT': 1, 'FLOAT': 1.01, 'LIST': [1, 2, 3], 'DICT': {'foo': [1, 2, 3]}, 'BOOL': True}")
-        else:
-            self.assertDeepEqual(str(envjoy.env), "{'BOOL': True, 'INT': 1, 'FLOAT': 1.01, 'TUPLE': (1, 2, 3), 'LIST': [1, 2, "
- "3], 'DICT': {'foo': [1, 2, 3]}}")
+        # NOTE: Python 2 vs Python 3
+        self.assertDeepEqual(eval(str(envjoy.env)), eval("{'BOOL': True, 'INT': 1, 'FLOAT': 1.01, 'TUPLE': (1, 2, 3), 'LIST': [1, 2, "
+ "3], 'DICT': {'foo': [1, 2, 3]}}"))
 
     def test___bool__(self):
         self.assertTrue(hasattr(envjoy.env, '__bool__'))
