@@ -28,12 +28,15 @@ from envjoy import env
 
 # non-casted access - never throws annoying errors
 
-env.FOO
+print(env.FOO)
+
 env.FOO = 1
+
+print(env.FOO)
 
 del env.FOO
 
-env.FOO = 1
+print(env.FOO)
 
 # casted access - never throws annoying errors
 
