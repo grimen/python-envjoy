@@ -1,5 +1,5 @@
 
-# `envjoy` [![PyPI version](https://badge.fury.io/py/envjoy.svg)](https://badge.fury.io/py/envjoy) [![Build Status](https://travis-ci.com/grimen/python-envjoy.svg?branch=master)](https://travis-ci.com/grimen/python-envjoy)
+# `envjoy` [![PyPI version](https://badge.fury.io/py/envjoy.svg)](https://badge.fury.io/py/envjoy) [![Build Status](https://travis-ci.com/grimen/python-envjoy.svg?branch=master)](https://travis-ci.com/grimen/python-envjoy) [![Coverage Status](https://codecov.io/gh/grimen/python-envjoy/branch/master/graph/badge.svg)](https://codecov.io/gh/grimen/python-envjoy)
 
 *A more enjoyable environment variable getter and setter - for Python.*
 
